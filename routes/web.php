@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('{any}', function () {
+    return view('welcome');     // whatever you receive at url return view welcome
+})->where('any', '.*');                         // where is like any can be anything it has route parameter and its regular expressions
+
+
+
