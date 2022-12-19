@@ -2,13 +2,15 @@ import { createRouter,createWebHistory } from "vue-router";
 import HeaderComponent from "../Components/Header.vue"
 import OptionsComponent from "../Components/Options.vue"
 import CompositionComponent from "../Components/Composition.vue"
+import StoreComponent from "../Components/store.vue"
+
 
 
 
 const routes =[
     {
         path: "/",
-        component:HeaderComponent,
+        component:OptionsComponent,
         name: "home",
     },
     {
@@ -21,6 +23,11 @@ const routes =[
         component:CompositionComponent, 
         name:'composition',
     },
+    {
+        path: '/Store',
+        component:StoreComponent, 
+        name:'store',
+    }
 ]
 export default createRouter({
     history: createWebHistory(),
