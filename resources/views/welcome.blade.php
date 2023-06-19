@@ -406,7 +406,7 @@
 </head>
 
 <body class="antialiased">
-    
+
 
     <div id="app">
         <headercomp></headercomp>

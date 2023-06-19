@@ -2,7 +2,7 @@ import { createRouter,createWebHistory } from "vue-router";
 import HeaderComponent from "../Components/Header.vue"
 import OptionsComponent from "../Components/Options.vue"
 import CompositionComponent from "../Components/Composition.vue"
-import StoreComponent from "../Components/store.vue"
+import StoreComponent from "../Components/Store.vue"
 
 
 
@@ -15,17 +15,17 @@ const routes =[
     },
     {
         path: '/options',
-        component:OptionsComponent, 
+        component:OptionsComponent,
         name:'options',
     },
     {
         path: '/composition',
-        component:CompositionComponent, 
+        component:CompositionComponent,
         name:'composition',
     },
     {
         path: '/Store',
-        component:StoreComponent, 
+        component:StoreComponent,
         name:'store',
     }
 ]
