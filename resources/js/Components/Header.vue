@@ -11,6 +11,12 @@
         <li class="nav-item">
           <router-link to="/store"> Store</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/books"> Composeable Books </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'booksCreate' }"> Books Create</router-link>
+        </li>
       </ul>
     </div>
   </nav>

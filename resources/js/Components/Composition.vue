@@ -45,21 +45,22 @@
 import { ref, watch, computed } from "vue";
 export default {
   name: "composition",
-  /* it only has setup method that contains all methods data etc 
-    so whatever is needed or used above must be returened from setup function 
-    we need to make variables reactive so any changes in that would reactive 
+  /* it only has setup method that contains all methods data etc
+    so whatever is needed or used above must be returened from setup function
+    we need to make variables reactive so any changes in that would reactive
     variables are accessed like var.data
     */
 
-  /* ref vs reactive 
-   for ref you need to use .value to get the value of variable but in reactive you dont need that 
-   for reactive you import reactive from vue 
-   create a object 
+  /* ref vs reactive
+   for ref you need to use .value to get the value of variable but in reactive you dont need that
+   for reactive you import reactive from vue
+   and reactive is for only objects while ref is for boths
+   create a object
    let reactivedata= reactive({
     tasksArray: [],
     task:'',
    })
-    and would be used as reactivedata.tasksArray or reactivedata.task in everywhere 
+    and would be used as reactivedata.tasksArray or reactivedata.task in everywhere
     */
   mounted() {
     console.log("mounted");
@@ -107,10 +108,10 @@ export default {
         task.value = "";
       }
     });
-   
+
 
     /* computed */
-    
+
     let TasksCount = computed(() => {
       return tasksArray.value.length;
     });

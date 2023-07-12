@@ -40,7 +40,7 @@
 <script>
 export default {
   /* data returns an array of data. it is like a function
-  all variables in data are by defauly reactive 
+  all variables in data are by default reactive
   */
   data() {
     return {
@@ -62,18 +62,18 @@ export default {
   methods: {
     AddTask() {
         console.log("pushed");
-      this.tasksArray.push({
+        this.tasksArray.push({
         id:this.tasksArray.length,
         title:this.task,
-    }); 
+    });
       this.task='';
     },
     DeleteTask(index){
         this.tasksArray.splice(index,1)
     }
   },
-    /* watchers are what look are watches something like input i.e if a input gets something alert etc 
-    watchers are on the name of that input 
+    /* watchers are what look are watches something like input i.e if a input gets something alert etc
+    watchers are on the name of that input
     */
     watch: {
       task(val) {
@@ -85,16 +85,16 @@ export default {
     },
     /*
     computed are that dont get arguemnt and run automatically
-    computed are what that return what need some computation logic like eik array ki length jab b update ho 
+    computed are what that return what need some computation logic like eik array ki length jab b update ho
     tu computed khud e compute kr k apko oper dy dy
     its called like function but it dont take argument ..
-    is function k andar jo b data use ho rha hota woh jab change ya update hota tu khud e call ho jata 
+    is function k andar jo b data use ho rha hota woh jab change ya update hota tu khud e call ho jata
     */
     computed:{
         TasksCount(){
             return this.tasksArray.length;
         }
     }
-  
+
 };
 </script>

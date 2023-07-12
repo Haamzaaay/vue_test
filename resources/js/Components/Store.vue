@@ -1,20 +1,22 @@
 <template>
     <div class="row">
       <div class="col-md-12 main_div">
-        <h2 >The Store Example with color {{ $store.state.color }} </h2>
-        <h1>Add the task from here with getter as {{ $store.getters.GetUpperColor }}</h1>
+        <h2 :style="{ color: $store.state.color }">The Store Example with color {{ $store.state.color }} </h2>
+        <!-- <h1>Add the task from here with getter as {{ $store.getters.GetUpperColor }}</h1> -->
         <small> Your total tasks right now is {{ TasksCount }} !</small>
         <br />
-        <label for="task">Task </label>
+        <label for="task">Color </label>
         <input
           type="text"
           class="form-control"
-          placeholder="task"
-          name="task"
+          placeholder="Color"
+          name="color"
           style="background-color: black; color: white"
-          v-model="tasks"
+          v-model="color"
         />
-        <button class="btn btn-primary" @click="AddTask">Add Task</button>
+
+
+        <button class="btn btn-primary" @click="SetColor">SetColor</button>
         <button class="btn btn-primary" @click="$store.dispatch('GetRandomColor')">Change Color</button>
 
       </div>
@@ -33,7 +35,7 @@
             <tr v-for="(value, index) in $store.state.tasksArray" :key="value.id">
               <th scope="row">{{ value.id }}</th>
               <td>{{ value.name }}</td>
-       
+
               <td>
                 <button class="btn btn-danger" @click="DeleteTask(value.id)">
                   Delete
@@ -45,21 +47,16 @@
       </div>
     </div>
   </template>
-  <style>
 
-  </style>
+
+
 <script>
+import { ref, watch, computed } from "vue";
+import { useStore } from 'vuex';   //importing the store
 
-
-import { ref } from "vue";
-
-
-
-export default ({
-    mounted(){
-    
-    },
+export default {
     setup() {
+        const store = useStore();   //assiging to a variable as we dont use this here
         let color=ref("blue");
         let tasks=ref("news");
         let tasksArray=ref([
@@ -72,11 +69,18 @@ export default ({
         title: "Doctor",
       },
     ]);
-  
+
   function AddTask(){
         console.log("AddTask clicked");
 
     }
+
+    let TasksCount = computed(() => {
+      return tasksArray.value.length;
+    });
+
+    let SetColor = ()=> store.commit('changeColor',color.value)
+
 
 
 
@@ -85,7 +89,9 @@ export default ({
         tasks,
         color,
         AddTask,
+        SetColor,
+        TasksCount,
     };
-    },
-})
+    }
+};
 </script>

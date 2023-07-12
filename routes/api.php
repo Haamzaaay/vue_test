@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('getRandomColor',function (Request $request) {
         return "green";
+});
+
+Route::apiResource('books',BooksController::class);
+
+Route::post('/bookCreate',function (Request $request) {
+    if($request->hasFile('image'))
+    dd("han image h ");
+    return $request->all();
 });
