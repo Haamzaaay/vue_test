@@ -56,7 +56,18 @@ const routes =[
         name:'emit',
     }
 ]
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+//global middleware as it return true or false 
+router.beforeEach((to, from) => {
+    // ...
+    console.log(to, "yeh route kr ja rha ");
+    console.log(from, "yeh route khan s aa rha  ");
+    // explicitly return false to cancel the navigation
+    return true;
+  })
+
+export default router;
