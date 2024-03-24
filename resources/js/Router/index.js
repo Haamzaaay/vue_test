@@ -1,4 +1,5 @@
 import { createRouter,createWebHistory } from "vue-router";
+import {testRoutes} from "./testRoutes"
 import HeaderComponent from "../Components/Header.vue"
 import OptionsComponent from "../Components/Options.vue"
 import CompositionComponent from "../Components/Composition.vue"
@@ -15,6 +16,7 @@ import EmitComponent from "../Components/ParentComponentForEmit.vue"
 
 
 const routes =[
+    ...testRoutes,
     {
         path: "/",
         component:OptionsComponent,
@@ -61,7 +63,7 @@ const router = createRouter({
     routes,
 });
 
-//global middleware as it return true or false 
+//global middleware as it return true or false
 router.beforeEach((to, from) => {
     // ...
     console.log(to, "yeh route kr ja rha ");
