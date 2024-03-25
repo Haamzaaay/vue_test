@@ -33,7 +33,6 @@ export default function  bookComposeable(){
 
     const editbook = async(id)=>{
         try{
-
         }catch(error){
             console.log(error);
         }

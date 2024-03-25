@@ -6,6 +6,7 @@ import {
     testString,
     count,
     functionaddcount,
+    resetWithoutref,
 } from "./index";
 onMounted(() => {
     console.log("before without ref", testObjwithoutRef);
@@ -13,7 +14,7 @@ onMounted(() => {
     testObjwithoutRef.testVal = "newi value for without ref";
     testObjwithRef.value.testVal = "nawi value h bhai ";
     console.log(`count before`, count);
-    functionaddcount();
+    functionaddcount(); // it modifies the counter
     console.log(`count after`, count);
 });
 
@@ -42,6 +43,8 @@ const checkWithoutRef = () => {
         Onclick without ref change
     </button>
     <button @click="checkWithoutRef()">Check without ref</button>
+    <button @click="resetWithoutref()">Set actual to null</button>
+
     <br />
 
     <button
@@ -56,10 +59,18 @@ const checkWithoutRef = () => {
     <small>notes:</small>
     <ul>
         <ul>
-            common js mai jab ek var export krty tu woh apki us file mai as a regular variable act krta h and uska apni wali file s link nhe rehta .. yani export s uski value copy ho k idr aa jati and yeh ek new var ban jata .. jisko app update b kr skty
+            common js mai jab ek var export krty tu woh apki us file mai as a
+            regular variable act krta h and uska apni wali file s link nhe rehta
+            .. yani export s uski value copy ho k idr aa jati and yeh ek new var
+            ban jata .. jisko app update b kr skty
         </ul>
         <li>
-            es6 main woh direct file s directly  link hota and read only hota h jis file mai ap import kr rhy hoty (objects ki value tu ap kr sakty mgr yeh string etc nhe ).In other words, every import is a live connection to the exported data. Imports are read-only..iska mtlb yeh b h usky original jagah yani jdr s export ho rha whan s ap data change krien gay tu is file main b hoga
+            es6 main woh direct file s directly link hota and read only hota h
+            jis file mai ap import kr rhy hoty (objects ki value tu ap kr sakty
+            mgr yeh string etc nhe idr impoerted file main .. udr ap exported wali main change kr sakty and since yeh live connection hota tu udr ka change idr b hoga ).In other words, every import is a live
+            connection to the exported data. Imports are read-only..iska mtlb
+            yeh b h usky original jagah yani jdr s export ho rha whan s ap data
+            change krien gay tu is file main b hoga
         </li>
         <li>
             on mount p without ref ki hm value change krty hn and woh change ho
