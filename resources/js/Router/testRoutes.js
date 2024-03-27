@@ -5,6 +5,11 @@ import component3 from "../Components/Testing/es5scope/component3.vue";
 
 export const testRoutes = [
     {
+        path: "/promise",
+        component: () => import("../Components/Testing/promise/index.vue"),
+        name: "promise",
+    },
+    {
         path: "/parent-prop-test",
         component: ParentPropTest,
         name: "parent-prop-test",

@@ -67,7 +67,9 @@ const checkWithoutRef = () => {
         <li>
             es6 main woh direct file s directly link hota and read only hota h
             jis file mai ap import kr rhy hoty (objects ki value tu ap kr sakty
-            mgr yeh string etc nhe idr impoerted file main .. udr ap exported wali main change kr sakty and since yeh live connection hota tu udr ka change idr b hoga ).In other words, every import is a live
+            mgr yeh string etc nhe idr impoerted file main .. udr ap exported
+            wali main change kr sakty and since yeh live connection hota tu udr
+            ka change idr b hoga ).In other words, every import is a live
             connection to the exported data. Imports are read-only..iska mtlb
             yeh b h usky original jagah yani jdr s export ho rha whan s ap data
             change krien gay tu is file main b hoga

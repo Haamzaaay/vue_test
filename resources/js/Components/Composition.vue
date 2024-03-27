@@ -64,7 +64,7 @@ export default {
     */
   mounted() {
     console.log("mounted");
-    console.log(this.task);
+    console.log(this);
   },
   setup() {
     /* ref basically creates an object and has .value to get the value of the variable or object */
