@@ -1,4 +1,31 @@
 <script setup>
+import { onMounted } from "vue";
+const getWeather = () => {
+    return new Promise(function (resolve, reject) {
+        reject("sunny day");
+    });
+};
+const getWeatherIcon = (response) => {
+    return new Promise(function (resolve, reject) {
+        resolve("winter");
+    });
+};
+/*
+//  beneath is the chaining example.. first promise resolves call the call back that resolves the promise and the last then runs, and if the first or any fails it go to catch
+const promise = getWeather()
+    .then(getWeatherIcon,
+    // function (err) {  agr hm yhan p catch krien fir neechy wala b chalta
+    //     console.log(err);
+    // }
+    )
+    .then(function (weather) {
+        console.log(`output->weather`, weather);
+    })
+    .catch(function (err) {
+        console.log(`output->err`, err);
+    });
+    */
+console.log(`output->promise`, promise);
 const checkpromiseAll = () => {
     const promise1 = new Promise((resolve, reject) =>
         setTimeout(() => resolve("Promise 1 resolved"), 1000)
@@ -9,6 +36,7 @@ const checkpromiseAll = () => {
 
         // setTimeout(() => reject("Promise 2 resolved"), 2000)
     );
+    w;
 
     Promise.all([promise1, promise2])
         .then((values) => {
